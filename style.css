@@ -1,0 +1,158 @@
+/* Set basic styles for the entire page */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #E0FFFF, #FFC0CB);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Styles for the container holding the calculator */
+.container {
+    max-width: 600px;
+    margin: 100px auto; /* Center the container */
+    padding: 20px 5px;
+    background: linear-gradient(to left, #3466d1, #FF1493);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Styles for the header inside the container */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styles for the h1 element inside the container */
+h1 {
+    color: #ffffff; /* White text color */
+}
+
+/* Styles for the rows of the calculator */
+.row {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+/* Scale up the row on hover */
+.row:hover {
+    transform: scale(1.05);
+}
+
+/* Styles for the images inside the rows */
+img {
+    margin-right: 10px;
+}
+
+/* Styles for the number input fields */
+input[type="number"] {
+    padding: 10px;
+    font-size: 15px;
+    width: 250px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    flex: 1;
+    transition: border-color 0.3s ease;
+    background-color: #fff;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Styles for the focus state of the number input fields */
+input[type="number"]:focus {
+    border-color: #ff7e5f;
+    outline: none;
+    box-shadow: 0 0 0 2px #ff7e5f;
+}
+
+/* Styles for removing default styling of spin buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-moz-inner-spin-button,
+input[type="number"]::-moz-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Styles for removing default styling of clear button */
+input[type="number"]::-ms-clear {
+    display: none;
+}
+
+/* Styles for the autofill button */
+input[type="number"]::-webkit-contacts-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+}
+
+/* Styles for the text elements next to the number input fields */
+.cash-text {
+    font-weight: bold;
+    margin-left: 10px;
+    width: 40px;
+    display: inline-block;
+    text-align: center;
+    color: white;
+}
+
+/* Styles for the reset button */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff7e5f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-end;
+}
+
+/* Styles for the reset button on hover */
+button:hover {
+    background-color: #ff6c4a;
+}
+
+/* Styles for the total cash text at the bottom */
+#txtFinalCash {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #ffffff; /* White text color */
+}
+
+/* Styles for the total cash in words text at the bottom */
+#txtFinalCashInWords {
+    margin-top: 10px;
+    font-style: italic;
+    color: #fff; /* White text color */
+}
+
+/* Styles for the container of the total cash and total cash in words */
+.result-part {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Keyframes for the fadeIn animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

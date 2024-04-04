@@ -15,7 +15,7 @@
 
 ### Getting Started
 1. Clone this repository.
-2. OPen with Live Server
+2. Open with Live Server
 
 ## Technologies Used
 1. Javascript
