@@ -1,5 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+     // Get references to input fields for each denomination
     const et2000 = document.getElementById('et2000');
     const et500 = document.getElementById('et500');
     const et200 = document.getElementById('et200');
@@ -11,7 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const et2 = document.getElementById('et2');
     const et1 = document.getElementById('et1');
     // Get references to other input fields
-  
+
+    // Get references to elements where the calculated values will be displayed
     const txt2000 = document.getElementById('txt2000');
     const txt500 = document.getElementById('txt500');
     const txt200 = document.getElementById('txt200');
@@ -24,22 +26,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const txt1 = document.getElementById('txt1');
     // Get references to other result elements
   
+    // Get references to the final cash total and the button to reset the calculator
     const txtFinalCash = document.getElementById('txtFinalCash');
     const txtFinalCashInWords = document.getElementById('txtFinalCashInWords');
     const btnReset = document.getElementById('btnReset');
   
+    // Arrays to store references to input fields and displayed values for each denomination
     const cashInputs = [et2000, et500, et200, et100,et50,et20,et10,et5,et2,et1];
     const cashTexts = [txt2000, txt500, txt200, txt100,txt50,txt20,txt10,txt5,txt2,txt1];
   
+
+     // Add event listeners to input fields for each denomination to update values
     cashInputs.forEach((input, index) => {
       input.addEventListener('input', () => {
         cashCalculate(index);
       });
     });
   
+
+    // Add event listener to the reset button to clear all values
     btnReset.addEventListener('click', clearData);
   
+     // Function to calculate the value of each denomination and update the total
     function cashCalculate(index) {
+         // Calculate the value of the denomination based on the input value
+      // Update the displayed value for the denomination
+      // Update the total cash value and display it
       const denominations = [2000, 500, 200, 100,50,20,10,5,2,1];
       const rowValue = cashInputs[index].value * denominations[index];
       cashTexts[index].textContent = rowValue.toFixed(0);
@@ -49,8 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       totalCash();
     }
-  
+
+    // Function to calculate the total cash value and display it in words
     function totalCash() {
+      // Calculate the total cash value based on the values of each denomination
+      // Display the total cash value
+      // Display the total cash value in words
+
       let totalCashValue = 0;
       cashTexts.forEach((text) => {
         totalCashValue += parseInt(text.textContent);
@@ -60,7 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
       txtFinalCashInWords.textContent = `Total Cash In Words: ${convertToWords(totalCashValue)}`;
     }
   
+      // Function to clear all input values and displayed values
     function clearData() {
+      // Clear the input values for each denomination
+      // Reset the displayed values for each denomination
+      // Update the total cash value and display it
       cashInputs.forEach((input) => {
         input.value = '';
       });
@@ -70,7 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
       totalCash();
     }
   
+     // Function to convert a number to words
    function convertToWords(number) {
+     // Implement the logic to convert a number to words
+      // Return the words representation of the number
       const units = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
       const teens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
       const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
@@ -147,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
+     // Event listener to prevent entering negative or non-numeric values in input fields
     cashInputs.forEach(input => {
         input.addEventListener('input', () => {
           const value = parseInt(input.value, 10);
